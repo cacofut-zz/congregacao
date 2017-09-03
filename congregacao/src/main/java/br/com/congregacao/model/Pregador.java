@@ -1,50 +1,69 @@
 package br.com.congregacao.model;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class Pregador {
 
 	private long  id;
 	private String nome;
+	private String sobrenome;
 	private LocalDate dataNascimento;
 	private String email;
-	private String telefone;
 	private boolean status;
-	private TipoPregador tipoPregador;
+	private String numero;
+	private String complemento;
+	private String logradouro;
+	private int cep;
+	private String bairro;
 	private Arquivo imagem;
-	private Endereco endereco;
+	private TipoPregador tipoPregador;
+	private Pais pais;
+	private Estado estado;
+	private List<TelefonePregador> telefones;
+
+	public Pregador() {
 	
-	public Pregador(){
-		
 	}
 
-	public Pregador(long id) {	
-		this.id = id;
-	}
-
-	public Pregador(long id, String nome, LocalDate dataNascimento, String email, String telefone, boolean status,
-			TipoPregador tipoPregador, Arquivo imagem, Endereco endereco) {
+	public Pregador(long id, String nome, String sobrenome, LocalDate dataNascimento, String email, boolean status,
+			String numero, String complemento, String logradouro, int cep, String bairro,
+			Arquivo imagem, TipoPregador tipoPregador, Pais pais, Estado estado) {
+	
 		this.id = id;
 		this.nome = nome;
+		this.sobrenome = sobrenome;
 		this.dataNascimento = dataNascimento;
 		this.email = email;
-		this.telefone = telefone;
 		this.status = status;
-		this.tipoPregador = tipoPregador;
+		this.numero = numero;
+		this.complemento = complemento;
+		this.logradouro = logradouro;
+		this.cep = cep;
+		this.bairro = bairro;
 		this.imagem = imagem;
-		this.endereco = endereco;
+		this.tipoPregador = tipoPregador;
+		this.pais = pais;
+		this.estado = estado;
 	}
 
-	public Pregador(String nome, LocalDate dataNascimento, String email, String telefone, boolean status,
-			TipoPregador tipoPregador, Arquivo imagem, Endereco endereco) {
+	public Pregador(String nome, String sobrenome, LocalDate dataNascimento, String email, boolean status, 
+			String numero, String complemento, String logradouro, int cep, String bairro,
+			Arquivo imagem, TipoPregador tipoPregador, Pais pais, Estado estado) {
 		this.nome = nome;
+		this.sobrenome = sobrenome;
 		this.dataNascimento = dataNascimento;
 		this.email = email;
-		this.telefone = telefone;
 		this.status = status;
-		this.tipoPregador = tipoPregador;
+		this.numero = numero;
+		this.complemento = complemento;
+		this.logradouro = logradouro;
+		this.cep = cep;
+		this.bairro = bairro;
 		this.imagem = imagem;
-		this.endereco = endereco;
+		this.tipoPregador = tipoPregador;
+		this.pais = pais;
+		this.estado = estado;
 	}
 
 	public long getId() {
@@ -63,6 +82,14 @@ public class Pregador {
 		this.nome = nome;
 	}
 
+	public String getSobrenome() {
+		return sobrenome;
+	}
+
+	public void setSobrenome(String sobrenome) {
+		this.sobrenome = sobrenome;
+	}
+
 	public LocalDate getDataNascimento() {
 		return dataNascimento;
 	}
@@ -79,14 +106,6 @@ public class Pregador {
 		this.email = email;
 	}
 
-	public String getTelefone() {
-		return telefone;
-	}
-
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
-
 	public boolean isStatus() {
 		return status;
 	}
@@ -94,13 +113,53 @@ public class Pregador {
 	public void setStatus(boolean status) {
 		this.status = status;
 	}
-
-	public TipoPregador getTipoPregador() {
-		return tipoPregador;
+	
+	public List<TelefonePregador> getTelefones() {
+		return telefones;
 	}
 
-	public void setTipoPregador(TipoPregador tipoPregador) {
-		this.tipoPregador = tipoPregador;
+	public void setTelefones(List<TelefonePregador> telefones) {
+		this.telefones = telefones;
+	}
+
+	public String getNumero() {
+		return numero;
+	}
+
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
+
+	public String getComplemento() {
+		return complemento;
+	}
+
+	public void setComplemento(String complemento) {
+		this.complemento = complemento;
+	}
+
+	public String getLogradouro() {
+		return logradouro;
+	}
+
+	public void setLogradouro(String logradouro) {
+		this.logradouro = logradouro;
+	}
+
+	public int getCep() {
+		return cep;
+	}
+
+	public void setCep(int cep) {
+		this.cep = cep;
+	}
+
+	public String getBairro() {
+		return bairro;
+	}
+
+	public void setBairro(String bairro) {
+		this.bairro = bairro;
 	}
 
 	public Arquivo getImagem() {
@@ -111,21 +170,40 @@ public class Pregador {
 		this.imagem = imagem;
 	}
 
-	public Endereco getEndereco() {
-		return endereco;
+	public TipoPregador getTipoPregador() {
+		return tipoPregador;
 	}
 
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
+	public void setTipoPregador(TipoPregador tipoPregador) {
+		this.tipoPregador = tipoPregador;
+	}
+
+	public Pais getPais() {
+		return pais;
+	}
+
+	public void setPais(Pais pais) {
+		this.pais = pais;
+	}
+
+	public Estado getEstado() {
+		return estado;
+	}
+
+	public void setEstado(Estado estado) {
+		this.estado = estado;
 	}
 
 	@Override
 	public String toString() {
-		return "Pregador [id=" + id + ", nome=" + nome + ", dataNascimento=" + dataNascimento + ", email=" + email
-				+ ", telefone=" + telefone + ", status=" + status + ", tipoPregador=" + tipoPregador + ", imagem="
-				+ imagem + ", endereco=" + endereco + "]";
+		return "Pregador [id=" + id + ", nome=" + nome + ", sobrenome=" + sobrenome + ", dataNascimento="
+				+ dataNascimento + ", email=" + email + ", status=" + status + ", numero=" + numero + ", complemento="
+				+ complemento + ", logradouro=" + logradouro + ", cep=" + cep + ", bairro=" + bairro + ", imagem="
+				+ imagem + ", tipoPregador=" + tipoPregador + ", pais=" + pais + ", estado=" + estado + ", telefones="
+				+ telefones + "]";
 	}
-	
-	
+
+
 	
 }
+
