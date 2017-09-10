@@ -1,6 +1,8 @@
 package br.com.congregacao.model;
 
-public class Arquivo {
+import br.com.congregacao.model.dao.ObjectDomain;
+
+public class Arquivo implements ObjectDomain{
 
 	private long id;
 	private String nome      = "";
@@ -56,10 +58,11 @@ public class Arquivo {
 	}
 
 	@Override
-	public String toString() {		
-		return String.format(
-			"Arquivo[ %s = %d, %s = %s, %s = %s, %s = %s ]", "id", id, "nome", nome, "diretorio", diretorio, "extenção", extencao );	
+	public String toString() {
+		return "Arquivo [id=" + id + ", nome=" + nome + ", diretorio=" + diretorio + ", extencao=" + extencao + "]";
 	}
+
+	
 		
 	
 }

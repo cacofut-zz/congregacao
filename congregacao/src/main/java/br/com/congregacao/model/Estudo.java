@@ -2,7 +2,9 @@ package br.com.congregacao.model;
 
 import java.time.LocalDate;
 
-public class Estudo {
+import br.com.congregacao.model.dao.ObjectDomain;
+
+public class Estudo implements ObjectDomain{
 
 	private long id;
 	private LocalDate perfilData;

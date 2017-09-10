@@ -13,9 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcOperations;
 import org.springframework.jdbc.core.RowMapper;
 
-import br.com.congregacao.model.Midia;
+
 import br.com.congregacao.model.Perfil;
-import br.com.congregacao.model.Pregador;
+import br.com.congregacao.model.Estudante;
 import br.com.congregacao.model.Revisita;
 
 public class PerfilDAOImpl implements PerfilDAO{
@@ -26,9 +26,7 @@ public class PerfilDAOImpl implements PerfilDAO{
 	@Autowired
 	private PregadorDAO pregadorDAO;
 	
-	@Autowired
-	private MidiaDAO midiaDAO;
-	
+
 	@Autowired
 	private RevisitaDAO revisitaDAO;
 	
@@ -41,18 +39,15 @@ public class PerfilDAOImpl implements PerfilDAO{
 		perfil.setTempo		 ( rs.getTime  ( "perfil_tempo" ).toLocalTime());
 		perfil.setObservacoes( rs.getString( "perfil_observacoes" ) );
 		
-		Callable<Pregador>       c1 = ()->{ return pregadorDAO.buscarPorId(pregadorId);};
-		Callable<List<Midia>>    c2 = ()->{ return midiaDAO.buscarPorDataEIdPregador( perfil.getData(), pregadorId ); };
+		//Callable<Estudante>      c1 = ()->{ return pregadorDAO.buscarPorId(pregadorId);};
 		Callable<List<Revisita>> c3 = ()->{	return revisitaDAO.buscarPorDataEIdPregador( perfil.getData(), pregadorId );};
 		
 		ExecutorService executorService       = Executors.newFixedThreadPool(3);
-		Future<Pregador> futurePregador       = executorService.submit( c1 );
-		Future<List<Midia>> futureMidias      = executorService.submit( c2 );
+		//Future<Estudante> futurePregador       = executorService.submit( c1 );
 		Future<List<Revisita>> futureRevisita = executorService.submit( c3 );
 		executorService.shutdown();
 		try {			
-			perfil.setPregador (futurePregador.get());
-			perfil.setMidias   (futureMidias.get());
+			//perfil.setPregador (futurePregador.get());
 			perfil.setRevisitas(futureRevisita.get());
 			
 		} catch (InterruptedException e) {

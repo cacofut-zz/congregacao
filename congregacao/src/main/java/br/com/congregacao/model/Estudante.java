@@ -2,20 +2,26 @@ package br.com.congregacao.model;
 
 import java.util.List;
 
-public class Estudante {
+import br.com.congregacao.model.dao.ObjectDomain;
+
+public class Estudante implements ObjectDomain{
 
 	private long  id;
 	private String nome;
 	private String sobrenome;
+	private Arquivo imagem;
 	private String numero;
 	private String complemento;
 	private String logradouro;
-	private int cep;
 	private String bairro;
-	private Arquivo imagem;
+	private int cep;
 	private Pais pais;
 	private Estado estado;
+	private String pregadorNome;
+	private String pregadorSobrenome;
 	private List<TelefonePregador> telefones;
+	
+	
 
 	public Estudante() {
 	
@@ -116,15 +122,32 @@ public class Estudante {
 	public void setTelefones(List<TelefonePregador> telefones) {
 		this.telefones = telefones;
 	}
+	
+	
+
+	public String getPregadorNome() {
+		return pregadorNome;
+	}
+
+	public void setPregadorNome(String pregadorNome) {
+		this.pregadorNome = pregadorNome;
+	}
+
+	public String getPregadorSobrenome() {
+		return pregadorSobrenome;
+	}
+
+	public void setPregadorSobrenome(String pregadorSobrenome) {
+		this.pregadorSobrenome = pregadorSobrenome;
+	}
 
 	@Override
 	public String toString() {
-		return "Estudante [id=" + id + ", nome=" + nome + ", sobrenome=" + sobrenome + ", numero=" + numero
-				+ ", complemento=" + complemento + ", logradouro=" + logradouro + ", cep=" + cep + ", bairro=" + bairro
-				+ ", imagem=" + imagem + ", pais=" + pais + ", estado=" + estado + ", telefones=" + telefones + "]";
+		return "Estudante [id=" + id + ", nome=" + nome + ", sobrenome=" + sobrenome + ", imagem=" + imagem
+				+ ", numero=" + numero + ", complemento=" + complemento + ", logradouro=" + logradouro + ", bairro="
+				+ bairro + ", cep=" + cep + ", pais=" + pais + ", estado=" + estado + ", pregadorNome=" + pregadorNome
+				+ ", pregadorSobrenome=" + pregadorSobrenome + ", telefones=" + telefones + "]";
 	}
-
-	
 
 	
 	

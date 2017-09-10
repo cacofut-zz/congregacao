@@ -12,8 +12,9 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 
 import br.com.congregacao.model.Arquivo;
+import br.com.congregacao.model.Estudante;
 import br.com.congregacao.model.Pregador;
-import br.com.congregacao.model.TipoMidia;
+
 import br.com.congregacao.model.TipoPregador;
 
 public class PregadorDAOImpl implements PregadorDAO{
@@ -37,7 +38,7 @@ public class PregadorDAOImpl implements PregadorDAO{
 		pregador.setId          ( rs.getLong   ( "pregador_id" ) );
 		pregador.setNome        ( rs.getString ( "pregador_nome" ) );
 		pregador.setEmail       ( rs.getString ( "pregador_email" ) );
-		pregador.setTelefone    ( rs.getString ( "pregador_telefone" ) );
+		//pregador.setTelefone    ( rs.getString ( "pregador_telefone" ) );
 		//pregador.setEndereco    ( rs.getString ( "pregador_endereco" ) );
 		pregador.setStatus      ( rs.getBoolean( "pregador_status" ) );
 		pregador.setImagem      ( arquivo );
@@ -94,8 +95,8 @@ public class PregadorDAOImpl implements PregadorDAO{
 				pregador.getNome(),
 				pregador.getDataNascimento(),
 				pregador.getEmail(),
-				pregador.getTelefone(),
-				pregador.getEndereco(),
+				//pregador.getTelefone(),
+				//pregador.getEndereco(),
 				arquivo_id,
 				id
 			);
@@ -119,8 +120,8 @@ public class PregadorDAOImpl implements PregadorDAO{
 		Map<String, Object> args = new HashMap<String, Object>();
 		args.put( "pregador_nome" ,      pregador.getNome());
 		args.put( "pregador_email",      pregador.getEmail());
-		args.put( "pregador_telefone",   pregador.getTelefone());
-		args.put( "pregador_endereco",   pregador.getEndereco());
+		//args.put( "pregador_telefone",   pregador.getTelefone());
+		//args.put( "pregador_endereco",   pregador.getEndereco());
 		args.put( "pregador_status",     pregador.isStatus());
 		args.put( "pregador_arquivo_id", arquivo_id );
 		args.put( "pregador_dataNascimento" , java.sql.Date.valueOf( pregador.getDataNascimento()));

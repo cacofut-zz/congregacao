@@ -2,7 +2,9 @@ package br.com.congregacao.model;
 
 import java.time.LocalDate;
 
-public class Publicacao {
+import br.com.congregacao.model.dao.ObjectDomain;
+
+public class Publicacao implements ObjectDomain{
 
 	private long id;
 	private String titulo;
@@ -10,6 +12,7 @@ public class Publicacao {
 	private LocalDate perfilData;
 	private long perfilPregadorId;
 	private TipoPublicacao tipoPublicacao;
+	
 	public long getId() {
 		return id;
 	}

@@ -1,10 +1,15 @@
 package br.com.congregacao.model;
 
-public class Pais {
+import br.com.congregacao.model.dao.ObjectDomain;
+
+public class Pais implements ObjectDomain{
 
 	private long id;
 	private String nome;
 	private String sigla;
+	
+	public Pais() {
+	}
 	
 	public Pais(long id, String nome, String sigla) {
 		this.id    = id;

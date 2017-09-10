@@ -14,16 +14,19 @@ import org.springframework.transaction.PlatformTransactionManager;
 
 import br.com.congregacao.model.dao.ArquivoDAO;
 import br.com.congregacao.model.dao.ArquivoDAOImpl;
-import br.com.congregacao.model.dao.MidiaDAO;
-import br.com.congregacao.model.dao.MidiaDAOImpl;
+import br.com.congregacao.model.dao.EstadoDAO;
+import br.com.congregacao.model.dao.EstadoDAOImpl;
+import br.com.congregacao.model.dao.PaisDAO;
+import br.com.congregacao.model.dao.PaisDAOImpl;
 import br.com.congregacao.model.dao.PerfilDAO;
 import br.com.congregacao.model.dao.PerfilDAOImpl;
 import br.com.congregacao.model.dao.PregadorDAO;
 import br.com.congregacao.model.dao.PregadorDAOImpl;
 import br.com.congregacao.model.dao.RevisitaDAO;
 import br.com.congregacao.model.dao.RevisitaDAOImpl;
-import br.com.congregacao.model.dao.TipoMidiaDAO;
-import br.com.congregacao.model.dao.TipoMidiaDAOImpl;
+import br.com.congregacao.model.dao.TipoPregadorDAO;
+import br.com.congregacao.model.dao.TipoPregadorDAOImpl;
+
 
 @Configuration
 @ComponentScan("br.com.congregacao.dao")
@@ -50,11 +53,6 @@ public class DataConfig {
 	}
 	
 	@Bean
-	public TipoMidiaDAO tipoMidiaDAO(){
-		return new TipoMidiaDAOImpl();
-	}
-	
-	@Bean
 	public PregadorDAO pregadorDAO(){
 		return new PregadorDAOImpl();
 	}
@@ -63,12 +61,7 @@ public class DataConfig {
 	public ArquivoDAO arquivoDAO(){
 		return new ArquivoDAOImpl();
 	}
-	
-	@Bean
-	public MidiaDAO midiaDAO(){
-		return new MidiaDAOImpl();
-	}
-	
+		
 	@Bean
 	public RevisitaDAO revisitaDAO(){
 		return new RevisitaDAOImpl();
@@ -77,5 +70,20 @@ public class DataConfig {
 	@Bean
 	public PerfilDAO perfilDAO(){
 		return new PerfilDAOImpl();
+	}
+	
+	@Bean
+	public PaisDAO paisDAO(){
+		return new PaisDAOImpl();
+	}
+	
+	@Bean
+	public EstadoDAO estadoDAO(){
+		return new EstadoDAOImpl();
+	}
+	
+	@Bean
+	public TipoPregadorDAO tipoPregadorDAO(){
+		return new TipoPregadorDAOImpl();
 	}
 }

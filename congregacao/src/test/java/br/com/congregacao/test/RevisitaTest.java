@@ -22,13 +22,7 @@ public class RevisitaTest {
 
 	@Test
 	public void testeAtualizar(){
-		Revisita revisita = new Revisita( 4 );
-		revisita.setEndereco( "Rua das treze horas 954 atualizada" );
-		revisita.setNome( "Lurdes da silva atualizada " );
-		revisita.setObservacoes( "Esta visita foi muito encorajadora atualizada" );
-		revisita.setPerfilData( LocalDate.of(2017, 5, 25) );
-		revisita.setPerfilPregadorId( 1 );
-		revisitaDAO.inserirOuAtualizar( revisita );
+	
 		
 	}
 	

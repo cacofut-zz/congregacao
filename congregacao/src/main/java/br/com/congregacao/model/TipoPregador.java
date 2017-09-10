@@ -1,6 +1,8 @@
 package br.com.congregacao.model;
 
-public class TipoPregador {
+import br.com.congregacao.model.dao.ObjectDomain;
+
+public class TipoPregador implements ObjectDomain{
 
 	private long id;
 	private String nome;
@@ -40,10 +42,11 @@ public class TipoPregador {
 	}
 
 	@Override
-	public String toString() {		
-		return String.format(
-			"TipoPregador[ %s = %d, %s = %s ]", "id", id, "nome", nome );	
+	public String toString() {
+		return "TipoPregador [id=" + id + ", nome=" + nome + "]";
 	}
+
+
 	
 	
 	

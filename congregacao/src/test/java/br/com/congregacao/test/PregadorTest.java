@@ -11,7 +11,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import br.com.congregacao.configuracao.DataConfig;
 import br.com.congregacao.model.Arquivo;
-import br.com.congregacao.model.Pregador;
+import br.com.congregacao.model.Estudante;
 import br.com.congregacao.model.TipoPregador;
 import br.com.congregacao.model.dao.PregadorDAO;
 
@@ -34,28 +34,13 @@ public class PregadorTest {
 	
 	//@Test
 	public void testeInsert(){		
-		Pregador pregador = new Pregador();
-		pregador.setNome    ( "cristiano d fgdfg d" );
-		pregador.setEmail   ( "cacofut@hotmail.com" );
-		pregador.setTelefone( "991874268" );
-		//pregador.setEndereco( "Rua Ernest Renam 954" );
-		pregador.setTipoPregador( new TipoPregador(1) );
-		pregador.setImagem  ( new Arquivo(1) );
-		pregador.setDataNascimento( LocalDate.of(1987, 1, 28));		
-		pregadorDAO.inserirOuAtualizar( pregador );
+		
 	}
 	
 	//@Test
 	public void testeUpdate(){	
-		Pregador pregador = new Pregador();
-		pregador.setId      ( 4 );
-		pregador.setNome    ( "cristiano carvalho amaral" );
-		pregador.setEmail   ( "cacofut@hotmail.com" );
-		pregador.setTelefone( "991874268" );
-		//pregador.setEndereco( "Rua Ernest Renam 954" );
-		pregador.setImagem  ( null );
-		pregador.setDataNascimento( LocalDate.of(1987, 1, 28));		
-		pregadorDAO.inserirOuAtualizar( pregador );
+		Estudante pregador = new Estudante();
+
 	}
 	
 	//@Test

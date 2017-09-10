@@ -3,7 +3,9 @@ package br.com.congregacao.model;
 import java.time.LocalDate;
 import java.util.List;
 
-public class Pregador {
+import br.com.congregacao.model.dao.ObjectDomain;
+
+public class Pregador implements ObjectDomain{
 
 	private long  id;
 	private String nome;
@@ -24,46 +26,6 @@ public class Pregador {
 
 	public Pregador() {
 	
-	}
-
-	public Pregador(long id, String nome, String sobrenome, LocalDate dataNascimento, String email, boolean status,
-			String numero, String complemento, String logradouro, int cep, String bairro,
-			Arquivo imagem, TipoPregador tipoPregador, Pais pais, Estado estado) {
-	
-		this.id = id;
-		this.nome = nome;
-		this.sobrenome = sobrenome;
-		this.dataNascimento = dataNascimento;
-		this.email = email;
-		this.status = status;
-		this.numero = numero;
-		this.complemento = complemento;
-		this.logradouro = logradouro;
-		this.cep = cep;
-		this.bairro = bairro;
-		this.imagem = imagem;
-		this.tipoPregador = tipoPregador;
-		this.pais = pais;
-		this.estado = estado;
-	}
-
-	public Pregador(String nome, String sobrenome, LocalDate dataNascimento, String email, boolean status, 
-			String numero, String complemento, String logradouro, int cep, String bairro,
-			Arquivo imagem, TipoPregador tipoPregador, Pais pais, Estado estado) {
-		this.nome = nome;
-		this.sobrenome = sobrenome;
-		this.dataNascimento = dataNascimento;
-		this.email = email;
-		this.status = status;
-		this.numero = numero;
-		this.complemento = complemento;
-		this.logradouro = logradouro;
-		this.cep = cep;
-		this.bairro = bairro;
-		this.imagem = imagem;
-		this.tipoPregador = tipoPregador;
-		this.pais = pais;
-		this.estado = estado;
 	}
 
 	public long getId() {

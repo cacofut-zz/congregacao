@@ -2,7 +2,9 @@ package br.com.congregacao.model;
 
 import java.time.LocalDate;
 
-public class Video {
+import br.com.congregacao.model.dao.ObjectDomain;
+
+public class Video implements ObjectDomain{
 
 	private long id;
 	private String titulo;

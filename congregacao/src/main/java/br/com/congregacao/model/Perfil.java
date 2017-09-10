@@ -4,13 +4,17 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
+
+import br.com.congregacao.model.dao.ObjectDomain;
+
 import static java.util.stream.Collectors.joining;
-public class Perfil {
+public class Perfil implements ObjectDomain{
 
 	private long id;
-	private Pregador pregador;
-	private List<Midia> midias;
+	private Estudante pregador;
+	private List<Publicacao> publicacoes;
 	private List<Revisita> revisitas;
+	private List<Estudo> estudos;
 	private LocalDate data;
 	private LocalTime tempo;
 	private String observacoes;
@@ -24,29 +28,6 @@ public class Perfil {
 		this.id = id;
 	}
 
-
-	public Perfil(long id, Pregador pregador, List<Midia> midias, List<Revisita> revisitas, LocalDate data,
-			LocalTime tempo, String observacoes) {
-	
-		this.id = id;
-		this.pregador = pregador;
-		this.midias = midias;
-		this.revisitas = revisitas;
-		this.data = data;
-		this.tempo = tempo;
-		this.observacoes = observacoes;
-	}
-
-	public Perfil(Pregador pregador, List<Midia> midias, List<Revisita> revisitas, LocalDate data, LocalTime tempo,
-			String observacoes) {	
-		this.pregador = pregador;
-		this.midias = midias;
-		this.revisitas = revisitas;
-		this.data = data;
-		this.tempo = tempo;
-		this.observacoes = observacoes;
-	}
-
 	
 	public long getId() {
 		return id;
@@ -56,20 +37,12 @@ public class Perfil {
 		this.id = id;
 	}
 
-	public Pregador getPregador() {
+	public Estudante getPregador() {
 		return pregador;
 	}
 
-	public void setPregador(Pregador pregador) {
+	public void setPregador(Estudante pregador) {
 		this.pregador = pregador;
-	}
-
-	public List<Midia> getMidias() {
-		return midias;
-	}
-
-	public void setMidias(List<Midia> midias) {
-		this.midias = midias;
 	}
 
 	public List<Revisita> getRevisitas() {
@@ -104,37 +77,33 @@ public class Perfil {
 		this.observacoes = observacoes;
 	}
 
-	@Override
-	public String toString() {	
-		
-		final String midiasJoined = midias.stream()
-				.map(item ->  item + "" )
-	            .collect(joining("\t],[", "[", "\t]"));
-		
-		final String revisitasJoined = revisitas.stream()
-				.map(item ->  item + "" )
-	            .collect(joining("\t],[", "[", "\t]"));
-	        
-		return String.format(
-			"Perfil[\n"
-			+ "\t%-11s = %s \n"
-			+ "\t%-11s = %s \n"
-			+ "\t%-11s = %s \n"
-			+ "\t%-11s = %s \n"
-			+ "\t%-11s = %s \n"
-			+ "\t%-11s = %s \n"
-			+ "\t%-11s = %s \n",
-			"id", id, 
-			"pregador", pregador, 
-			"midias", midiasJoined, 
-			"revisitas", revisitasJoined,
-			"data", data,
-			"tempo", tempo,
-			"observacoes", observacoes
-		);	
+	public List<Estudo> getEstudos() {
+		return estudos;
 	}
 
-	
+
+	public void setEstudos(List<Estudo> estudos) {
+		this.estudos = estudos;
+	}
+
+
+	public List<Publicacao> getPublicacoes() {
+		return publicacoes;
+	}
+
+
+	public void setPublicacoes(List<Publicacao> publicacoes) {
+		this.publicacoes = publicacoes;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Perfil [id=" + id + ", pregador=" + pregador + ", publicacoes=" + publicacoes + ", revisitas="
+				+ revisitas + ", estudos=" + estudos + ", data=" + data + ", tempo=" + tempo + ", observacoes="
+				+ observacoes + "]";
+	}
+
 	
 	
 }

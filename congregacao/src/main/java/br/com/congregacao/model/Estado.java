@@ -1,11 +1,22 @@
 package br.com.congregacao.model;
 
-public class Estado {
+import br.com.congregacao.model.dao.ObjectDomain;
+
+public class Estado implements ObjectDomain{
 
 	private long id;
 	private String nome;
 	private String sigla;
-	private long paisId;
+	
+	
+	public Estado() {
+		
+	}
+	
+	public Estado(String nome, String sigla) {
+		this.nome  = nome;
+		this.sigla = sigla;
+	}
 	
 	public long getId() {
 		return id;
@@ -25,17 +36,11 @@ public class Estado {
 	public void setSigla(String sigla) {
 		this.sigla = sigla;
 	}
-	public long getPaisId() {
-		return paisId;
-	}
-	public void setPaisId(long paisId) {
-		this.paisId = paisId;
-	}
 	@Override
 	public String toString() {
-		return "Estado [id=" + id + ", nome=" + nome + ", sigla=" + sigla + ", paisId=" + paisId + "]";
+		return "Estado [id=" + id + ", nome=" + nome + ", sigla=" + sigla + "]";
 	}
-
+	
 	
 
 }

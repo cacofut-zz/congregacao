@@ -1,6 +1,8 @@
 package br.com.congregacao.model;
 
-public class TipoTelefone {
+import br.com.congregacao.model.dao.ObjectDomain;
+
+public class TipoTelefone implements ObjectDomain{
 
 	private long id;
 	private String nome;

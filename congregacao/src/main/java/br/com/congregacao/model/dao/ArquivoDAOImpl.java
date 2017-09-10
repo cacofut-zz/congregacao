@@ -11,7 +11,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 
 import br.com.congregacao.model.Arquivo;
-import br.com.congregacao.model.Pregador;
+import br.com.congregacao.model.Estudante;
 
 public class ArquivoDAOImpl implements ArquivoDAO{
 
