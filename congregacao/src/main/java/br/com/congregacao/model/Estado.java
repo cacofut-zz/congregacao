@@ -18,6 +18,10 @@ public class Estado implements ObjectDomain{
 		this.sigla = sigla;
 	}
 	
+	public Estado(long id) {
+		this.id = id;
+	}
+
 	public long getId() {
 		return id;
 	}

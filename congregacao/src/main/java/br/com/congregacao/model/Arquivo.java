@@ -56,6 +56,7 @@ public class Arquivo implements ObjectDomain{
 	public void setExtencao(String extencao) {
 		this.extencao = extencao;
 	}
+	
 
 	@Override
 	public String toString() {

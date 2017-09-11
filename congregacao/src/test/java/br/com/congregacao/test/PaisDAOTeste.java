@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration( classes = { DataConfig.class } )
-public class PaisTeste {
+public class PaisDAOTeste {
 
 	@Autowired
 	private PaisDAO dao;

@@ -14,7 +14,7 @@ import br.com.congregacao.model.dao.RevisitaDAO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration( classes = { DataConfig.class } )
-public class RevisitaTest {
+public class RevisitaDAOTest {
 
 	@Autowired
 	private RevisitaDAO revisitaDAO;

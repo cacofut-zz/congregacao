@@ -16,13 +16,7 @@ public abstract class JdbcDAO<T extends ObjectDomain> implements DAO<T> {
 	
 	@Autowired
 	private JdbcOperations jdbc;
-	
-	protected long insereERetornaId( T objeto ){	
-		SimpleJdbcInsert jdbcInsert = new SimpleJdbcInsert( ( JdbcTemplate )jdbc ).withTableName( getTableName() );
-		jdbcInsert.setGeneratedKeyName( getCampoId() );
-		return jdbcInsert.executeAndReturnKey(getArgs(objeto)).longValue();	
-	}	
-	
+
 	public T inserirOuAtualizar( T objeto ) {
 		long id = objeto.getId();
 		if( id == 0 ){
@@ -30,26 +24,50 @@ public abstract class JdbcDAO<T extends ObjectDomain> implements DAO<T> {
 		}
 		else{
 			jdbc
-			.update("UPDATE "+ getTableName() +" SET "+ getCamposUpdate() +" WHERE "+ getCampoId() +" = ?", getCamposValueUpdate(objeto));
+			.update(
+				"UPDATE "+ 
+					getTableName()+
+				" SET "+getCamposUpdate()+
+				" WHERE "+getCampoId()+" = ?", 
+				getCamposValueUpdate(objeto)
+			);
 		}
 		return objeto;
 	}
 	
 	public boolean removerTodos() {
-		return jdbc.update( "DELETE FROM "+ getTableName() +" WHERE "+ getCampoId() +" > ?", 0 ) >= 1;
+		return jdbc.update(
+		"DELETE FROM "+ 
+			getTableName()+
+		" WHERE "+getCampoId()+ " > ?", 0 ) >= 1;
 	}
 	
 	public boolean remover(long id) {		
-		return jdbc.update( "DELETE FROM "+ getTableName() +" WHERE "+ getCampoId() +" = ?", id ) >= 1;
+		return jdbc.update( 
+		"DELETE FROM "+ 
+			getTableName()+
+		" WHERE "+getCampoId()+" = ?", id ) >= 1;
 	}
 	
 	public List<T> listarTodos() {
-		return getJdbc().query( "SELECT "+ getCampos() +" FROM " +getTableName() , getRowMapper());
+		return 
+		getJdbc()
+		.query( 
+			"SELECT "+ 
+				getCampos()+
+			" FROM "+getTableName(), getRowMapper());
 	}
 	
+	
 	public T buscarPorId(long id) {
-		return jdbc.queryForObject("SELECT "+ getCampos() +" FROM "+ getTableName() +" WHERE "+ getCampoId() +" = ?", 
-				new Object[]{id}, getRowMapper());
+		return 
+		jdbc.queryForObject(
+			"SELECT "+ 
+				getCampos()+
+			" FROM "+getTableName()+
+			" WHERE "+getCampoId()+" = ?", 
+			new Object[]{id}, getRowMapper()
+		);
 	}
 
 	public abstract Map<String, Object> getArgs( T objeto );
@@ -63,6 +81,13 @@ public abstract class JdbcDAO<T extends ObjectDomain> implements DAO<T> {
 	public JdbcOperations getJdbc() {
 		return jdbc;
 	}
+		
+	protected long insereERetornaId( T objeto ){	
+		SimpleJdbcInsert jdbcInsert = new SimpleJdbcInsert( ( JdbcTemplate )jdbc ).withTableName( getTableName() );
+		jdbcInsert.setGeneratedKeyName( getCampoId() );
+		return jdbcInsert.executeAndReturnKey(getArgs(objeto)).longValue();	
+	}	
+	
 	
 	
 }

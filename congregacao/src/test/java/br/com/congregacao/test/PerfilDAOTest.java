@@ -13,7 +13,7 @@ import br.com.congregacao.model.dao.PerfilDAO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration( classes = { DataConfig.class } )
-public class PerfilTest {
+public class PerfilDAOTest {
 	
 	@Autowired
 	private PerfilDAO perfilDAO;

@@ -6,30 +6,13 @@ public class TelefonePregador implements ObjectDomain{
 
 	private long id;
 	private String numero;
-	private String pregadorNome;
-	private String pregadorSobrenome;
+	private long pregadorId;
 	private TipoTelefone tipoTelefone;
 	
 	public TelefonePregador() {
 	
 	}
 	
-	public TelefonePregador(long id, String numero, String pregadorNome, String pregadorSobrenome,
-			TipoTelefone tipoTelefone) {
-		this.id = id;
-		this.numero = numero;
-		this.pregadorNome = pregadorNome;
-		this.pregadorSobrenome = pregadorSobrenome;
-		this.tipoTelefone = tipoTelefone;
-	}
-
-	public TelefonePregador(String numero, String pregadorNome, String pregadorSobrenome, TipoTelefone tipoTelefone) {
-		this.numero = numero;
-		this.pregadorNome = pregadorNome;
-		this.pregadorSobrenome = pregadorSobrenome;
-		this.tipoTelefone = tipoTelefone;
-	}
-
 	public long getId() {
 		return id;
 	}
@@ -46,22 +29,7 @@ public class TelefonePregador implements ObjectDomain{
 		this.numero = numero;
 	}
 
-	public String getPregadorNome() {
-		return pregadorNome;
-	}
-
-	public void setPregadorNome(String pregadorNome) {
-		this.pregadorNome = pregadorNome;
-	}
-
-	public String getPregadorSobrenome() {
-		return pregadorSobrenome;
-	}
-
-	public void setPregadorSobrenome(String pregadorSobrenome) {
-		this.pregadorSobrenome = pregadorSobrenome;
-	}
-
+	
 	public TipoTelefone getTipoTelefone() {
 		return tipoTelefone;
 	}
@@ -70,11 +38,20 @@ public class TelefonePregador implements ObjectDomain{
 		this.tipoTelefone = tipoTelefone;
 	}
 
+	public long getPregadorId() {
+		return pregadorId;
+	}
+
+	public void setPregadorId(long pregadorId) {
+		this.pregadorId = pregadorId;
+	}
+
 	@Override
 	public String toString() {
-		return "TelefonePregador [id=" + id + ", numero=" + numero + ", pregadorNome=" + pregadorNome
-				+ ", pregadorSobrenome=" + pregadorSobrenome + ", tipoTelefone=" + tipoTelefone + "]";
+		return "TelefonePregador [id=" + id + ", numero=" + numero + ", pregadorId=" + pregadorId + ", tipoTelefone="
+				+ tipoTelefone + "]";
 	}
+
 	
 	
 	

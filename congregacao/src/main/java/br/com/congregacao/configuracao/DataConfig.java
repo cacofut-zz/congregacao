@@ -24,8 +24,12 @@ import br.com.congregacao.model.dao.PregadorDAO;
 import br.com.congregacao.model.dao.PregadorDAOImpl;
 import br.com.congregacao.model.dao.RevisitaDAO;
 import br.com.congregacao.model.dao.RevisitaDAOImpl;
+import br.com.congregacao.model.dao.TelefonePregadorDAO;
+import br.com.congregacao.model.dao.TelefonePregadorDAOImpl;
 import br.com.congregacao.model.dao.TipoPregadorDAO;
 import br.com.congregacao.model.dao.TipoPregadorDAOImpl;
+import br.com.congregacao.model.dao.TipoTelefoneDAO;
+import br.com.congregacao.model.dao.TipoTelefoneDAOImpl;
 
 
 @Configuration
@@ -85,5 +89,15 @@ public class DataConfig {
 	@Bean
 	public TipoPregadorDAO tipoPregadorDAO(){
 		return new TipoPregadorDAOImpl();
+	}
+	
+	@Bean
+	public TipoTelefoneDAO tipoTelefoneDAO(){
+		return new TipoTelefoneDAOImpl();
+	}
+	
+	@Bean
+	public TelefonePregadorDAO telefonePregadorDAO(){
+		return new TelefonePregadorDAOImpl();
 	}
 }

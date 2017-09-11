@@ -7,6 +7,10 @@ public class TipoTelefone implements ObjectDomain{
 	private long id;
 	private String nome;
 	
+	public TipoTelefone() {
+		
+	}
+	
 	public TipoTelefone(String nome) {
 		this.nome = nome;
 	}

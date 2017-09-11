@@ -16,7 +16,7 @@ public class Pregador implements ObjectDomain{
 	private String numero;
 	private String complemento;
 	private String logradouro;
-	private int cep;
+	private String cep;
 	private String bairro;
 	private Arquivo imagem;
 	private TipoPregador tipoPregador;
@@ -108,11 +108,11 @@ public class Pregador implements ObjectDomain{
 		this.logradouro = logradouro;
 	}
 
-	public int getCep() {
+	public String getCep() {
 		return cep;
 	}
 
-	public void setCep(int cep) {
+	public void setCep(String cep) {
 		this.cep = cep;
 	}
 
@@ -165,6 +165,23 @@ public class Pregador implements ObjectDomain{
 				+ telefones + "]";
 	}
 
+	public Long getIdDoArquivoOuRetorneNull() {
+		if( imagem == null )
+			return null;
+		return imagem.getId();
+	}
+	
+	public long getIdDoTipoDePregador(){
+		return tipoPregador.getId();
+	}
+	
+	public long getIdDoPais(){
+		return pais.getId();
+	}
+
+	public long getIdDoEstado(){
+		return estado.getId();
+	}
 
 	
 }
