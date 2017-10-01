@@ -18,7 +18,7 @@ import java.time.LocalDate;
 
 @RunWith( SpringJUnit4ClassRunner.class )
 @ContextConfiguration( classes = DataConfig.class )
-public class PregadorDAOImplTest {
+public class PregadorDAOTeste {
 
 	@Autowired
 	private PregadorDAO dao;

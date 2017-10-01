@@ -14,11 +14,10 @@ public class Estudante implements ObjectDomain{
 	private String complemento;
 	private String logradouro;
 	private String bairro;
-	private int cep;
+	private String cep;
 	private Pais pais;
 	private Estado estado;
-	private String pregadorNome;
-	private String pregadorSobrenome;
+	private long pregadorId;
 	private List<TelefonePregador> telefones;
 	
 	
@@ -75,11 +74,11 @@ public class Estudante implements ObjectDomain{
 		this.logradouro = logradouro;
 	}
 
-	public int getCep() {
+	public String getCep() {
 		return cep;
 	}
 
-	public void setCep(int cep) {
+	public void setCep(String cep) {
 		this.cep = cep;
 	}
 
@@ -122,33 +121,41 @@ public class Estudante implements ObjectDomain{
 	public void setTelefones(List<TelefonePregador> telefones) {
 		this.telefones = telefones;
 	}
+
+	public long getPregadorId() {
+		return pregadorId;
+	}
+
+	public void setPregadorId(long pregadorId) {
+		this.pregadorId = pregadorId;
+	}
+	
+	public Long getImagemIdOrNull(){
+		if(imagem == null)
+			return null;
+		if(imagem.getId() == 0)
+			return null;
+		return imagem.getId();
+	}
+	
+	public long getEstadoId(){
+		return estado.getId();
+	}
+	
+	public long getPaisId(){
+		return pais.getId();
+	}
 	
 	
-
-	public String getPregadorNome() {
-		return pregadorNome;
-	}
-
-	public void setPregadorNome(String pregadorNome) {
-		this.pregadorNome = pregadorNome;
-	}
-
-	public String getPregadorSobrenome() {
-		return pregadorSobrenome;
-	}
-
-	public void setPregadorSobrenome(String pregadorSobrenome) {
-		this.pregadorSobrenome = pregadorSobrenome;
-	}
 
 	@Override
 	public String toString() {
 		return "Estudante [id=" + id + ", nome=" + nome + ", sobrenome=" + sobrenome + ", imagem=" + imagem
 				+ ", numero=" + numero + ", complemento=" + complemento + ", logradouro=" + logradouro + ", bairro="
-				+ bairro + ", cep=" + cep + ", pais=" + pais + ", estado=" + estado + ", pregadorNome=" + pregadorNome
-				+ ", pregadorSobrenome=" + pregadorSobrenome + ", telefones=" + telefones + "]";
+				+ bairro + ", cep=" + cep + ", pais=" + pais + ", estado=" + estado + ", pregadorId=" + pregadorId
+				+ ", telefones=" + telefones + "]";
 	}
-
+	
 	
 	
 }

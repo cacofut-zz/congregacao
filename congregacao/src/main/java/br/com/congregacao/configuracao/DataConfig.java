@@ -16,6 +16,8 @@ import br.com.congregacao.model.dao.ArquivoDAO;
 import br.com.congregacao.model.dao.ArquivoDAOImpl;
 import br.com.congregacao.model.dao.EstadoDAO;
 import br.com.congregacao.model.dao.EstadoDAOImpl;
+import br.com.congregacao.model.dao.EstudanteDAO;
+import br.com.congregacao.model.dao.EstudanteDAOImpl;
 import br.com.congregacao.model.dao.PaisDAO;
 import br.com.congregacao.model.dao.PaisDAOImpl;
 import br.com.congregacao.model.dao.PerfilDAO;
@@ -99,5 +101,10 @@ public class DataConfig {
 	@Bean
 	public TelefonePregadorDAO telefonePregadorDAO(){
 		return new TelefonePregadorDAOImpl();
+	}
+	
+	@Bean
+	public EstudanteDAO estudanteDAO(){
+		return new EstudanteDAOImpl();
 	}
 }
